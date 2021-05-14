@@ -1,0 +1,133 @@
+
+		.tripsAidTxt{
+			text-shadow: 4px 2px 1px #e3ebf1;
+			font-family: 'papyrus';
+			font-size: 2.9em;
+			font-weight: 800;
+			color: #6b92b4;
+		}
+		.nextTripsTxt{
+			font-family: 'ink free';
+			text-shadow: 2px 2px 3px  #474c5ae3;
+			font-size: 2.4em;
+		}
+		.lastTripsTxt{
+			color:#eff0ff;
+			text-shadow: 2px 2px 3px  #41444ee3;
+			font-family: 'ink free';
+		}
+		.formSr{
+			width: 20%;
+			border-radius: 0.3rem; border:0.1em solid #21c1d6;
+		}
+		.font-18 {
+		    font-size: 18px !important;
+		}
+		
+		.bgColorAll{
+			background-color:rgba(225, 225, 238, 0.7);
+		}
+		.myBorder
+		{
+			box-sizing: border-box;
+			box-shadow:  0px 0px 20px 10px #8197aa;
+			border:3px solid rgba(171, 203, 221, 0.788);
+		}
+		.bgImg{
+			background-image: url(../assets/images/background/StartPage.jpg);
+			background-size: cover;		
+		}
+		.RoomInfo{
+			
+			border: 1px solid #21c1d6;
+			border-radius: 5px ; 
+			
+		}
+		.borderForm{
+			border-bottom: 1px solid #8ea7bb ;
+		}
+		.borderInput{
+			border: 2px solid #21c1d6;
+			border-radius: 25px;
+			padding: 5px 12px;
+		}
+	.numChilde{
+		width: 10%;
+		border: 1px solid #21c1d6;
+		margin: 1%;
+	}
+	.ageChilde{
+		border: 2px solid #6facbe;
+		padding:  2px 7px;
+		border-radius: 25px;
+	}
+	.disabled{
+		background-color: #fff;
+	}
+	.headercolor{
+	background-color: #55acee;
+	color: whitesmoke;
+	}
+	.mdl ::selection {background-color: (0, 0%, 33%, 0); color: #111;}
+	.activbtn:active{
+		background-color: rgba(247, 247, 252, 0.7);
+		border: 0.2em solid #2bd1e7;
+		transition: 0.2s;
+
+	}
+	.myfooter{
+		background-color: hsla(225, 91%, 79%, 0.5);
+		position: absolute;
+		bottom: 0;
+		}
+
+	/*-----------animation text-------*/
+	*{
+            box-sizing: border-box;
+        }
+
+    
+
+        p{
+            width: 70%;
+            display: block;
+            text-align: center;
+        }
+
+        .char{
+            height: 40px;
+            animation: an 1s ease-out 1 both;
+            display: inline-block;
+        }
+
+        @keyframes an{
+            from{
+                opacity: 0;
+                transform: perspective(500px) translate3d(-35px, -40px, -150px) rotate3d(1, -1, 0, 35deg);
+            }
+            to{
+                opacity: 1;
+                transform: perspective(500px) translate3d(0, 0, 0);
+            }
+        }
+.mylink{
+  position: absolute;
+  z-index: 150;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  padding: .6rem;
+}
+
+.mylink a{
+  font-family: Calibri;
+ 
+  border-bottom: 1px solid #fff;
+  opacity: .5;
+  transition: opacity .3s;
+  text-decoration: none
+}
+.mylink a:hover{
+  opacity: 1
+}
