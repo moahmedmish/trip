@@ -2,6 +2,7 @@
 
 
 @section('content_head')
+
 <style>
     .HrefBooking{
         color:slategrey;
@@ -10,49 +11,11 @@
     a:hover{
         text-decoration: none;
     }
-    .Plcae-name{
-        text-shadow: 0.1em 0.1em 0.1em #bbb;
-    }
-    .place-photo
-    {
-     white-space: nowrap;
- position: relative;
- overflow-x: auto;
- overflow-y: hidden;
- -webkit-overflow-scrolling: touch;
-    }
-      /*-----------scrollbar style----------*/
- ::-webkit-scrollbar {
-width: 0.5em;
-height: 0.4em;
-
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-background: #dce3f8;
-box-shadow: inset 0 0 5px gray;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-background: rgb(112, 124, 138); 
-border-radius: 1em;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-background: rgb(75, 79, 105);
-}
-
-
-
 </style>
+
 @endsection
 
-
 @section('content')
-
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -155,8 +118,8 @@ background: rgb(75, 79, 105);
                 
                         
                         <ul aria-expanded="false" class="collapse first-level in">
-                            <li class="sidebar-item  active"><a href="overlay-Place Info.html" class="sidebar-link  active"><i class="fas fa-info"></i><span class="hide-menu"> Place Info </span></a></li>
-                            <li class="sidebar-item "><a href="overlay-Rooms table.html" class="sidebar-link"><i class="fas fa-table"></i> <span class="hide-menu"> Rooms Table </span></a></li>
+                            <li class="sidebar-item "><a href="overlay-Place Info.html" class="sidebar-link "><i class="fas fa-info"></i><span class="hide-menu"> Place Info </span></a></li>
+                            <li class="sidebar-item active"><a href="overlay-Rooms table.html" class="sidebar-link active"><i class="fas fa-table"></i> <span class="hide-menu"> Rooms Table </span></a></li>
                             <li class="sidebar-item"><a href="overlay-Reservation dates.html" class="sidebar-link"><i class="fas fa-calendar-alt"></i><span class="hide-menu">Reservation dates </span></a></li>
                             <li class="sidebar-item"><a href="proUserProfile.html" class="sidebar-link"><i class="fas fa-user"></i><span class="hide-menu">Profile </span></a></li>
                             
@@ -186,10 +149,10 @@ background: rgb(75, 79, 105);
             <!-- ============================================================== -->
             <div class="row page-titles">
                 <div class="col-md-5 col-12 align-self-center">
-                    <h3 class="text-themecolor mb-0">Place info</h3>
+                    <h3 class="text-themecolor mb-0">Rooms table</h3>
                     <ol class="breadcrumb mb-0 p-0 bg-transparent">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Place info</li>
+                        <li class="breadcrumb-item active">Rooms table</li>
                     </ol>
                 </div>
             
@@ -203,161 +166,199 @@ background: rgb(75, 79, 105);
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
-                <div class="card">
-                    <div class="card-body">
-                    @foreach ($places as $place)
-                      
-                        <h1 class="card-title text-info  mb-5 Plcae-name">{{ $place->place_name }}</h1>
-                        <h6 class="card-subtitle"> To update Place information</h6>
+                <!-- ============================================================== -->
+                <div class="widget-content searchable-container list">
+                    <div class="card card-body">
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <form>
+                                        <input type="text" class="form-control product-search" id="input-search" placeholder="Search room...">
+                                    </form>
+                                </div>
+                                <div class="col-md-8 text-right d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                                        <a href="#"  class="btn btn-info" data-toggle="modal" data-target="#AddRoom"><i class="mdi mdi-plus font-16 mr-1"></i> Add Room</a>
+                                </div>
+                        </div>
                     </div>
-                    <hr class="mt-0">
-                    <form class="form-horizontal r-separator" action="/edit_place_info" method="POST">
-                        @csrf
-                        <div class="card-body">
-                            <h4 class="ml-5">place information</h4>
-                            <hr>
-                        
-                            <div class="form-group row align-items-center mb-0">
-                                
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="icon-location-pin text-info"></i> Addriss</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="{{ $place->address }}" name="address">
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center mb-0">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" mdi mdi-email-outline text-info"></i> Email</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ $place->Email }}" name="Email">
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center mb-0">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" fas fa-star text-info"></i> Stars</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                   <div id="default-star-rating" style="cursor: pointer;"></div> 
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center mb-0">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="fas fa-arrows-alt-h text-info"></i> X</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="Number" class="form-control" id="inputEmail3" placeholder="{{ $place->latitude }}" name="latitude">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group row align-items-center mb-0">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="fas fa-arrows-alt-v text-info"></i> Y</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="number" class="form-control" id="inputEmail3" placeholder="{{ $place->longitude }}" name="longitude">
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center mb-0">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" fas fa-location-arrow text-info"></i> Region</label>
-                                <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input list="Region" class="form-control" placeholder="{{ $name_regoin->region_name }}" name="region_name" >
-                                    <datalist id="Region">
-                                        <option value="mazza" class="col-12 col-md-2   d-inline border-success"></option>
-                                   </datalist>
-                                </div>
-                            </div>
-                            <div class="form-group row align-items-center mb-0 place-photo">
-                                <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label">Photos</label>
-                                <div class="col-md-9 border-left pb-2 pt-2 place-photo">
-                                    <a href="../My Assets/images/hh.jpg" class="image-popup-no-margins"><img src="../My Assets/images/hh.jpg" width="100" height="100"></a>
-                                    <a href="../assets/images/background/تنزيل (2).jpg" class="image-popup-no-margins"><img src="../assets/images/background/تنزيل (2).jpg" width="100" height="100"></a> 
-                                
-                                    <label for="inputPhoto" class="btn btn-info ml-2"><i class="mdi mdi-plus font-16 mr-1"></i>Add photo</label>
-                                    <input type="file" class="d-none"   accept="image/*" id="inputPhoto">
-                                </div>
-                            </div>
-                            <div class="card-body bg-light">
-                                <div class="form-group mb-0 text-right">
-                                    <button type="submit" class="btn btn-info waves-effect waves-light ">Save</button>
-                                    <a href="/index_manegar" class="btn btn-dark waves-effect waves-light">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
- 
-                    </form> 
-                    @endforeach
-           
-                            <!--------------------------Services------------------>
-                            <div class="card-body">
-                            <div class="mt-5">
-                            <h4 class="ml-5">Services</h4>
-                        </div>
-                            <hr>
-                            <div class="widget-content searchable-container list">
-                                <div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <form>
-                                                <input type="text" class="form-control product-search" id="input-search" placeholder="Search room...">
-                                            </form>
+                 
+                    <div class="card card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped search-table v-middle">
+                                <thead class="header-item">
+                                  
+                                    <th class="text-dark font-weight-bold">RoomID</th>
+                                    <th class="text-dark font-weight-bold">Price</th>
+                                    <th class="text-dark font-weight-bold">Number Of Guests</th>
+                                    <th class="text-dark font-weight-bold">Descriptoin</th>
+                                    <th class="text-dark font-weight-bold">Photo</th>
+                                    <th class="text-dark font-weight-bold"></th>
+                                    <th class="text-center">
+                                        <div class="action-btn">
+                                            <sapn class="delete-multiple  text-danger"></a><i class="fas fa-trash font-20 font-medium"></i> Delete Row</span>
                                         </div>
-                                        <div class="col-md-8 text-right d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
-                                                <a href="#"  class="btn btn-info" data-toggle="modal" data-target="#AddService"><i class="mdi mdi-plus font-16 mr-1"></i> Add Room</a>
-                                        </div>
-                                </div>
-                                </div>
-                             
-                                <div class="mt-5">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped search-table v-middle">
-                                            <thead class="header-item">
-                                              
-                                                <th class="text-dark font-weight-bold">RoomID</th>
-                                                <th class="text-dark font-weight-bold">Service name</th>
-                                                <th class="text-dark font-weight-bold">Price</th>
-                                              
-                                                <th class="text-center">
-                                                    <div class="action-btn">
-                                                        <sapn class="delete-multiple  text-danger"></a><i class="fas fa-trash font-20 font-medium"></i> Delete Service</span>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <!-- row -->
+                                    <tr class="search-items">
+                                       
+                                       
+                                        <td>
+                                            <span>1</span>
+                                        </td>
+                                        <td>
+                                            <span>23</span>
+                                        </td>
+                                        <td>
+                                            <span>2</span>
+                                        </td>
+                                        <td>
+                                            <span>it have tow single beds</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
+                                                <div class="ml-2">
+                                                    <div class="user-meta-info">
+                                                        <h5 class="TsTherePhoto"></h5>
+                                                     
                                                     </div>
-                                                </th>
-                                            </thead>
-                                           
-                                            <tbody>
-                                                <!-- row -->
-                                               
-                                                <tr class="search-items">
-                                                   
-                                                    @foreach ($services as $service)
-                                                    <td>
-                                                        <span>{{ $service->id }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{ $service->service_name }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span>{{ $service->price }}</span>
-                                                    </td>
-                                                   
-                                                    <td class="text-center">
-                                                        <div class="action-btn">
-                                                            <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                            <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
-                                                        </div>
-                                                        @endforeach
-                                                    </td>
-                                                </tr>
-                                                <!-- /.row -->
-                                                
-                                            </tbody>
-                                            
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body bg-light">
-                            <div class="form-group mb-0 text-right">
-                                <button type="submit" class="btn btn-info waves-effect waves-light ">Save</button>
-                                <button type="submit" class="btn btn-dark waves-effect waves-light">Cancel</button>
-                            </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
+                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /.row -->
+                                     <!-- row -->
+                                     <tr class="search-items">
+                                       
+                                       
+                                        <td>
+                                            <span>1</span>
+                                        </td>
+                                        <td>
+                                            <span>23</span>
+                                        </td>
+                                        <td>
+                                            <span>2</span>
+                                        </td>
+                                        <td>
+                                            <span>it have one single beds</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
+                                                <div class="ml-2">
+                                                    <div class="user-meta-info">
+                                                        <h5 class="TsTherePhoto"></h5>
+                                                     
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
+                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /.row -->
+                                     <!-- row -->
+                                     <tr class="search-items">
+                                       
+                                       
+                                        <td>
+                                            <span>1</span>
+                                        </td>
+                                        <td>
+                                            <span>23</span>
+                                        </td>
+                                        <td>
+                                            <span>2</span>
+                                        </td>
+                                        <td>
+                                            <span>it have one double beds</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
+                                                <div class="ml-2">
+                                                    <div class="user-meta-info">
+                                                        <h5 class="TsTherePhoto"></h5>
+                                                     
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
+                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /.row -->
+                                     <!-- row -->
+                                     <tr class="search-items">
+                                       
+                                       
+                                        <td>
+                                            <span>1</span>
+                                        </td>
+                                        <td>
+                                            <span>23</span>
+                                        </td>
+                                        <td>
+                                            <span>2</span>
+                                        </td>
+                                        <td>
+                                            <span>it have one single beds</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
+                                                <div class="ml-2">
+                                                    <div class="user-meta-info">
+                                                        <h5 class="TsTherePhoto"></h5>
+                                                     
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
+                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /.row -->
+
+                                    
+                                    
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </div>
-         
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -425,9 +426,9 @@ background: rgb(75, 79, 105);
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                            <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Service name</label>
+                                            <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Number of  guest</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="GuestNo" placeholder="Service name">
+                                                <input type="text" class="form-control" id="GuestNo" placeholder="Number of guest">
                                             </div>
                                         </div>
                                     </div>
@@ -437,12 +438,21 @@ background: rgb(75, 79, 105);
                                         <div class="form-group row">
                                             <label class="col-sm-3 text-right control-label col-form-label">Price</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="Price" placeholder=" Service Price">
+                                                <input type="text" class="form-control" id="Price" placeholder="Price for night">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 text-right control-label col-form-label">photo</label>
+                                            <button class="btn btn-light-info mb-2"><label for="RoomPhoto">Change Photo</label> </button>
+                                                <img src="../assets/images/background/تنزيل (1).jpg"  width="75%" style="margin-left: 13%;">
+                                                <input type="file" class="d-none" id="RoomPhoto" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
@@ -458,11 +468,11 @@ background: rgb(75, 79, 105);
                 
                 <!--===========================Add Row========================-->
 
-             <div class="modal fade" id="AddService" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal fade" id="AddRoom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-info">
-                            <h5 class="modal-title  text-white" id="exampleModalLongTitle">Add Service</h5>
+                            <h5 class="modal-title  text-white" id="exampleModalLongTitle">Add Room</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -473,9 +483,9 @@ background: rgb(75, 79, 105);
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
-                                            <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Service name</label>
+                                            <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Number of  guest</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="GuestNo" placeholder="Service name">
+                                                <input type="number" class="form-control" id="GuestNo" placeholder="Nimber of guest">
                                             </div>
                                         </div>
                                     </div>
@@ -485,12 +495,21 @@ background: rgb(75, 79, 105);
                                         <div class="form-group row">
                                             <label class="col-sm-3 text-right control-label col-form-label">Price</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="Price" placeholder="Service Price">
+                                                <input type="number" class="form-control" id="Price" placeholder="Price for night">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 text-right control-label col-form-label">photo</label>
+                                            <button class="btn btn-light-info mb-2"><label for="RoomPhoto">Upload Photo</label> </button>
+                                                <img  width="75%" style="margin-left: 13%;">
+                                                <input type="file" class="d-none" id="RoomPhoto" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
@@ -505,13 +524,37 @@ background: rgb(75, 79, 105);
 
 
 
- 
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-  
-    
-    
-    
-</body>
+     <!--=================== Photo Room  modal===========================-->
 
+     <div class="modal fade" id="PhotoModal" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg ">
+         <div class="modal-content">
+             
+             <div class="modal-body p-0">
+                <img src="../assets/images/background/تنزيل (1).jpg" width="100%">
+             </div>
+         </div><!-- /.modal-content -->
+     </div><!-- /.modal-dialog -->
+ </div><!-- /.modal -->
+
+ <script>
+    var IsThrePhoto = document.getElementsByClassName("TsTherePhoto");
+    var RoomImg = document.getElementsByClassName("srcPhoto");
+     for(i = 0 ; i < IsThrePhoto.length ; i ++)
+     {
+   if(RoomImg[i].src !="")
+   {
+       IsThrePhoto[i].innerHTML = "";
+   }
+   else {
+       IsThrePhoto[i].innerHTML = "no Photo";
+   }
+     } 
+     function ss (){
+         alert(RoomImg[0].src)
+     }
+       </script>
+
+       
 @endsection

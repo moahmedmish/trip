@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Place;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -12,10 +13,20 @@ class UserController extends Controller
 
     public function getAccount()
     {
+
+       
         return view('profile', ['user' => Auth::user()]);
     }
 
     
+    public function index()
+    {
+
+       
+        return view('auth.register');
+    }
+
+
     function create(Request $req)
     {
               

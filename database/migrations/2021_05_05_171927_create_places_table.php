@@ -23,6 +23,7 @@ class CreatePlacesTable extends Migration
             $table->string('place_type');
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('service_manegar_id')->nullable();
             $table->timestamps();
         });
     }

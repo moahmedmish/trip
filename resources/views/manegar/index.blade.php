@@ -13,8 +13,8 @@
         <div class="container"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="overlay-Rooms table.html">Rooms</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="overlay-Reservation dates.html">reservations</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/room_info">Rooms</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/place_info">reservations</a></li>
                 </ul>
             </div>
         </div>
@@ -22,8 +22,9 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container">
-                <h1 class="masthead-heading mb-0">four season</h1>
-                <h2 class="masthead-subheading mb-0">&nbsp;</h2><a class="btn btn-dark btn-xl rounded-pill mt-5" role="button" href="overlay-Place%20Info.html">Edit place information</a></div>
+                @foreach ($places as $place)
+           <h1 class="masthead-heading mb-0">{{ $place->place_name}}</h1>       @endforeach
+              <h2 class="masthead-subheading mb-0">&nbsp;</h2><a class="btn btn-dark btn-xl rounded-pill mt-5" role="button" href="/place_info">Edit place information</a></div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
         <div class="bg-circle-2 bg-circle"></div>

@@ -20,10 +20,10 @@
     <!-- Custom CSS -->
     <link href="lib/style.css" rel="stylesheet">
 
-    <link href="../assets/libs/raty-js/lib/jquery.raty.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/extra-libs/prism/prism.css">
-    <link href="../assets/libs/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
-    <link href="../assets/libs/magnific-popup/animation.css" rel="stylesheet">
+    <link href="lib/jquery.raty.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/prism.css">
+    <link href="lib/magnific-popup.css" rel="stylesheet">
+    <link href="lib/animation.css" rel="stylesheet">
     
 	@yield('content_head')
 </head>
@@ -68,7 +68,7 @@
        
  
   <script src="lib/footable.min.js"></script>
-  <script src="/footable-init.js"></script>
+  <script src="lib/footable-init.js"></script>
 
 
   <script src="lib/prism.js"></script>
@@ -80,7 +80,11 @@
 <script src="lib/jquery.sparkline.min.js"></script>
 <script src="lib/jquery.bootstrap-touchspin.min.js"></script>
 
+<script src="lib/rating-init.js"></script>
+<script src="lib/jquery.raty.js"></script>
 
+
+   
 
 </body>
 </html>

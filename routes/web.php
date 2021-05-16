@@ -44,6 +44,13 @@ Route::get('/user_table',[AdminController::class,'userTable']);
 Route::get('/remove_To_user/{id}',[AdminController::class,'removeUser']);
 Route::get('/service_table',[AdminController::class,'serviceTable']);
 
-
+Route::get('/register_user',[UserController::class,'index']);
 Route::post('/register',[UserController::class,'create']);
-Route::post('/register',[ServiceManegerController::class,'create']);
+Route::post('/register_servicemanegar',[ServiceManegerController::class,'create']);
+
+Route::get('/index_manegar',[ServiceManegerController::class,'index']);
+Route::get('/room_info',[ServiceManegerController::class,'room_info']);
+Route::get('/place_info',[ServiceManegerController::class,'place_info']);
+
+Route::post('/edit_place_info',[ServiceManegerController::class,'edit']);
+
