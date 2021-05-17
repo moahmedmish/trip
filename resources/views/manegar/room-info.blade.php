@@ -70,16 +70,6 @@
                                 class="nav-link sidebartoggler d-none d-md-block waves-effect waves-dark"
                                 href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                       
-                        <!-- ============================================================== -->
-                        <!-- Mega Menu -->
-                        <!-- ============================================================== -->
-                      
-                        <!-- ============================================================== -->
-                        <!-- End Mega Menu -->
-                        <!-- ============================================================== -->
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -88,12 +78,6 @@
                         <!-- ============================================================== -->
                   
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -137,12 +121,6 @@
             </div>
             <!-- End Bottom points-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
@@ -157,12 +135,6 @@
                 </div>
             
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
@@ -189,7 +161,6 @@
                                     <th class="text-dark font-weight-bold">RoomID</th>
                                     <th class="text-dark font-weight-bold">Price</th>
                                     <th class="text-dark font-weight-bold">Number Of Guests</th>
-                                    <th class="text-dark font-weight-bold">Descriptoin</th>
                                     <th class="text-dark font-weight-bold">Photo</th>
                                     <th class="text-dark font-weight-bold"></th>
                                     <th class="text-center">
@@ -200,160 +171,46 @@
                                 </thead>
                                 <tbody>
                                     <!-- row -->
+                                   
+                                    @foreach ($rooms as $room)
+
                                     <tr class="search-items">
                                        
                                        
                                         <td>
-                                            <span>1</span>
+                                            <span>{{ $room->id }}</span>
                                         </td>
                                         <td>
-                                            <span>23</span>
+                                            <span>{{ $room->price  }}</span>
                                         </td>
                                         <td>
-                                            <span>2</span>
+                                            <span>{{ $room->count_people }}</span>
                                         </td>
-                                        <td>
-                                            <span>it have tow single beds</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
-                                                <div class="ml-2">
-                                                    <div class="user-meta-info">
-                                                        <h5 class="TsTherePhoto"></h5>
-                                                     
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action-btn">
-                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- /.row -->
-                                     <!-- row -->
-                                     <tr class="search-items">
-                                       
-                                       
-                                        <td>
-                                            <span>1</span>
-                                        </td>
-                                        <td>
-                                            <span>23</span>
-                                        </td>
-                                        <td>
-                                            <span>2</span>
-                                        </td>
-                                        <td>
-                                            <span>it have one single beds</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
-                                                <div class="ml-2">
-                                                    <div class="user-meta-info">
-                                                        <h5 class="TsTherePhoto"></h5>
-                                                     
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action-btn">
-                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- /.row -->
-                                     <!-- row -->
-                                     <tr class="search-items">
-                                       
-                                       
-                                        <td>
-                                            <span>1</span>
-                                        </td>
-                                        <td>
-                                            <span>23</span>
-                                        </td>
-                                        <td>
-                                            <span>2</span>
-                                        </td>
-                                        <td>
-                                            <span>it have one double beds</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
-                                                <div class="ml-2">
-                                                    <div class="user-meta-info">
-                                                        <h5 class="TsTherePhoto"></h5>
-                                                     
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action-btn">
-                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- /.row -->
-                                     <!-- row -->
-                                     <tr class="search-items">
-                                       
-                                       
-                                        <td>
-                                            <span>1</span>
-                                        </td>
-                                        <td>
-                                            <span>23</span>
-                                        </td>
-                                        <td>
-                                            <span>2</span>
-                                        </td>
-                                        <td>
-                                            <span>it have one single beds</span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img class="srcPhoto" src="../assets/images/background/تنزيل (1).jpg"  width="35" data-toggle="modal" data-target="#PhotoModal">
-                                                <div class="ml-2">
-                                                    <div class="user-meta-info">
-                                                        <h5 class="TsTherePhoto"></h5>
-                                                     
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="action-btn">
-                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- /.row -->
-
                                     
-                                    
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img class="srcPhoto" src="{{ $room->price }}"  width="35" data-toggle="modal" data-target="#PhotoModal">
+                                                <div class="ml-2">
+                                                    <div class="user-meta-info">
+                                                        <h5 class="TsTherePhoto"></h5>
+                                                     
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <a href="overlay-Reservation dates.html" class="HrefBooking">Reservation dates</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="action-btn">
+                                                <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
+                                                <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- /.row -->
+                                
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -363,27 +220,14 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
-     
-            <!--========================================================= -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             <footer class="footer text-center">
                 @Trips aid team
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
     
              <!--===========================Delete Row========================-->
 
@@ -479,7 +323,8 @@
                         </div>
                         <div class="modal-body">
                             <div class="card-body">
-                             
+                                <form action="room_info" method="POST">
+                                    @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group row">
@@ -519,7 +364,7 @@
                     </div>
                 </div>
                 </div>
-
+            </form>
                 <!--===========================EndAdd Row========================-->
 
 

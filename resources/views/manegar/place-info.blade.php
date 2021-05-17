@@ -277,7 +277,7 @@ background: rgb(75, 79, 105);
                         </div>
  
                     </form> 
-                    @endforeach
+                   
            
                             <!--------------------------Services------------------>
                             <div class="card-body">
@@ -317,10 +317,10 @@ background: rgb(75, 79, 105);
                                            
                                             <tbody>
                                                 <!-- row -->
-                                               
+                                                @foreach ($services as $service)
                                                 <tr class="search-items">
                                                    
-                                                    @foreach ($services as $service)
+                                                  
                                                     <td>
                                                         <span>{{ $service->id }}</span>
                                                     </td>
@@ -334,25 +334,19 @@ background: rgb(75, 79, 105);
                                                     <td class="text-center">
                                                         <div class="action-btn">
                                                             <a href="javascript:void(0)" class="text-info" data-toggle="modal" data-target="#EditRow"><i class="mdi mdi-account-edit font-20"></i></a>
-                                                            <a href="javascript:void(0)" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
+                                                            <a href="" class="text-dark ml-2" data-toggle="modal" data-target="#centermodal"><i class="mdi mdi-delete font-20"></i></a>
                                                         </div>
-                                                        @endforeach
+                                                      
                                                     </td>
                                                 </tr>
                                                 <!-- /.row -->
-                                                
-                                            </tbody>
-                                            
-                                        </table>
+                                               
+                                           
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body bg-light">
-                            <div class="form-group mb-0 text-right">
-                                <button type="submit" class="btn btn-info waves-effect waves-light ">Save</button>
-                                <button type="submit" class="btn btn-dark waves-effect waves-light">Cancel</button>
-                            </div>
+                       
                         </div>
                     </div>
                 </div>
@@ -362,27 +356,11 @@ background: rgb(75, 79, 105);
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
             </div>
-     
-            <!--========================================================= -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                @Trips aid team
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
     
              <!--===========================Delete Row========================-->
 
@@ -399,13 +377,14 @@ background: rgb(75, 79, 105);
                             <p class="font-20 font-weight-bolder text-dark">Are you sure to Delete This Row ?</p>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                <button id="BookingUnConf" class="btn btn-danger"  data-dismiss="modal">Delete</button>
+                                <a href="/remove_To_service/{{$service->id}}" id="BookingUnConf" class="btn btn-danger"  >Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 </div>
-
+              
+              
                 <!--===========================EndDelete Row========================-->
 
                 <!--===========================Edit Row========================-->
@@ -414,6 +393,11 @@ background: rgb(75, 79, 105);
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-info">
+                            <form action="edit_service_info" method="POST">
+                                @csrf
+
+                                <input type="hidden" value="{{ $service->id }}" name="id">
+                        
                             <h5 class="modal-title  text-white" id="exampleModalLongTitle">Edit this Row</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -427,7 +411,7 @@ background: rgb(75, 79, 105);
                                         <div class="form-group row">
                                             <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Service name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="GuestNo" placeholder="Service name">
+                                                <input type="text" class="form-control" id="GuestNo" placeholder="{{ $service->service_name }}" name="service_name">
                                             </div>
                                         </div>
                                     </div>
@@ -437,7 +421,7 @@ background: rgb(75, 79, 105);
                                         <div class="form-group row">
                                             <label class="col-sm-3 text-right control-label col-form-label">Price</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="Price" placeholder=" Service Price">
+                                                <input type="text" class="form-control" id="Price" placeholder="{{ $service->price }}" name="price">
                                             </div>
                                         </div>
                                     </div>
@@ -446,13 +430,17 @@ background: rgb(75, 79, 105);
                             </div>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                <button id="BookingUnConf" class="btn btn-success"  data-dismiss="modal">Update</button>
+                                <button type="submit" id="BookingUnConf" class="btn btn-success"  >Update</button>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                </form>
                 </div>
                 </div>
-
+                @endforeach 
+            </tbody>
+                        
+        </table>
                 <!--===========================EndEdit Row========================-->
 
                 
@@ -472,10 +460,13 @@ background: rgb(75, 79, 105);
                              
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <form action="add_service_info" method="POST">
+                                            @csrf
                                         <div class="form-group row">
+                                            
                                             <label for="cono12" class="col-sm-3 text-right control-label col-form-label">Service name</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="GuestNo" placeholder="Service name">
+                                                <input type="text" class="form-control" id="GuestNo" placeholder="" name="service_name">
                                             </div>
                                         </div>
                                     </div>
@@ -485,22 +476,25 @@ background: rgb(75, 79, 105);
                                         <div class="form-group row">
                                             <label class="col-sm-3 text-right control-label col-form-label">Price</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="Price" placeholder="Service Price">
+                                                <input type="number" class="form-control" id="Price" placeholder="" name="price">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 
                             </div>
+                            <input type="hidden" value="{{ $place->id }}" name="id">
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                <button id="BookingUnConf" class="btn btn-success"  data-dismiss="modal">Add</button>
+                                <button type="submit" id="BookingUnConf" class="btn btn-success" >Add</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>
                 </div>
-
+              
+                @endforeach
                 <!--===========================EndAdd Row========================-->
 
 
@@ -509,7 +503,9 @@ background: rgb(75, 79, 105);
     <!-- ============================================================== -->
     <!-- All Jquery -->
   
-    
+    <footer class="footer text-center">
+        @Trips aid team
+    </footer>
     
     
 </body>

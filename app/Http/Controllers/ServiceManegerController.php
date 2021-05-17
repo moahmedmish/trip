@@ -7,6 +7,7 @@ use App\Models\ServiceManegar;
 use App\Models\Place;
 use App\Models\Regoin;
 use App\Models\Service;
+use App\Models\Room;
 use Illuminate\Support\Facades\Hash;
 
 class ServiceManegerController extends Controller
@@ -34,13 +35,15 @@ class ServiceManegerController extends Controller
 
         $service = Service::where('place_id',1)->get();
 
-        return view('manegar.place-info', ['services' => $service],['places' =>  $place ] , ['name_regoin' => $name]  );
+        return view('manegar.place-info', ['services' => $service ,'places' =>  $place  ,'name_regoin' => $name]  );
     }
 
-    function room_info(Request $req)
+    function room_info(Request $request )
     {
-       
-        return view('manegar.room-info');
+
+        $room = Room::where('place_id ', $request->id )->get();
+        
+        return view('manegar.room-info' , ['rooms' => $room ]);
     }
 
 
@@ -91,5 +94,45 @@ class ServiceManegerController extends Controller
 
        return redirect('/');
     }
+    public function editService(Request $request)
+    {
+
+        $service = Service::find($request->id);
+
+        $service->service_name  = $request->service_name;
+        $service->price    = $request->price;
+    
+
+        $service->update();
+      
+
+       return redirect('/place_info');
+    }
+
+    function removeService($id)
+    {
+         
+        Service::destroy($id);
+
+        return redirect('/place_info');
+    }
+
+
+    function addService (Request $req )
+    {
+              
+            $service= new Service;
+    
+            $service->service_name=$req->service_name;
+            $service->price=$req->price;
+            $service->place_id=$req->id;
+
+        
+             $service->save();
+
+             return redirect('/place_info');
+     }
+
+
 
 }

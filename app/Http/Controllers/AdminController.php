@@ -32,7 +32,7 @@ class AdminController extends Controller
         $place = Place::orderBy('created_at', 'desc')->get();
 
 
-         return view('admin.place',['places' =>  $place ], ['regoin' => $regoin]); 
+         return view('admin.place',['places' =>  $place ]); 
  
     }
 

@@ -23,7 +23,9 @@
         <div class="masthead-content">
             <div class="container">
                 @foreach ($places as $place)
-           <h1 class="masthead-heading mb-0">{{ $place->place_name}}</h1>       @endforeach
+           <h1 class="masthead-heading mb-0">{{ $place->place_name}}</h1> 
+           <input type="hidden" value="{{ $place->id}}" name="id">
+           @endforeach
               <h2 class="masthead-subheading mb-0">&nbsp;</h2><a class="btn btn-dark btn-xl rounded-pill mt-5" role="button" href="/place_info">Edit place information</a></div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>

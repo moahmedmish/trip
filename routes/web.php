@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    return view('manegar.index');
+    return view('reservation');
 });
 
 Auth::routes();
@@ -53,4 +53,8 @@ Route::get('/room_info',[ServiceManegerController::class,'room_info']);
 Route::get('/place_info',[ServiceManegerController::class,'place_info']);
 
 Route::post('/edit_place_info',[ServiceManegerController::class,'edit']);
+Route::get('/remove_To_service/{id}',[ServiceManegerController::class,'removeService']);
+
+Route::post('/edit_service_info',[ServiceManegerController::class,'editService']);
+Route::post('/add_service_info',[ServiceManegerController::class,'addService']);
 
