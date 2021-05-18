@@ -144,7 +144,6 @@
                                                     <th>Last Name</th>
                                                     <th data-breakpoints="xs sm">Mobile No</th>
                                                     <th data-breakpoints="xs">Email</th>
-                                                    <th data-breakpoints="xs">Password</th>
                                                     <th data-breakpoints="xs">Date of Birth</th>  
                                                     <th data-breakpoints="all" data-title="Place Name">Place Name</th>
                                                     <th data-breakpoints="all" data-title="Region">Region</th>
@@ -158,19 +157,21 @@
                                             </thead>
                                             <tbody>
                                                 <!--=====Row======-->
+                                                @foreach($servicemanegarsnotproven as $servicemanegarnotproven)
+
                                                 <tr data-expanded="false" class="search-items">
                                                     <td>1</td>
                                                     <td>
                                                         <a href="javascript:void(0)"><img
                                                                 src="../assets/images/users/4.jpg" alt="user" width="40"
-                                                                class="rounded-circle" /> Genelia </a>
+                                                                class="rounded-circle" />{{ $servicemanegarnotproven->first_name }}</a>
                                                     </td>
                                                     
-                                                    <td>Deshmukh</td>
-                                                    <td>+123 112 789</td>
-                                                    <td>genelia@gmail.com</td>
-                                                    <td>FmhD%3&jboi54hjGCS6g74v##$ </td>
+                                                    <td>{{ $servicemanegarnotproven->last_name }}</td>
+                                                    <td>{{ $servicemanegarnotproven->phone_number }}</td>
+                                                    <td>{{ $servicemanegarnotproven->Email }}</td>
                                                     <td><span class="label label-danger">   1/2/1998</span> </td>
+
                                                     <td>Foure Season</td>
                                                     <td>City Center</td>
                                                     <td>Abo remana</td>
@@ -183,6 +184,7 @@
                                                         <button class="btn btn-dark-success" data-toggle="modal" data-target="#exampleModal">Prove</button>
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                                 </tbody>
                                         </table>
                                     </div>
@@ -217,10 +219,8 @@
                                                 <th>Last Name</th>
                                                 <th data-breakpoints="xs sm">Mobile No</th>
                                                 <th data-breakpoints="xs">Email</th>
-                                                <th data-breakpoints="xs">Password</th>
                                                 <th data-breakpoints="xs">Date of Birth</th> 
                                                 <th data-breakpoints="xs">Place</th>
-                                                <th data-breakpoints="xs">Lock/UnLock</th>
                                                 <th data-breakpoints="xs">
                                                    Delete
                                                 </th> 
@@ -229,37 +229,57 @@
                                         </thead>
                                         <tbody>
                                             <!--=====Row======-->
+                                            @foreach($servicemanegarsproven as $servicemanegarproven)
                                             <tr data-expanded="false" class="search-items">
                                                 <td>1</td>
                                                 <td>
                                                     <a href="javascript:void(0)"><img
                                                             src="../assets/images/users/4.jpg" alt="user" width="40"
-                                                            class="rounded-circle" /> Genelia </a>
+                                                            class="rounded-circle" /> {{ $servicemanegarproven->first_name }} </a>
                                                 </td>
                                                 
-                                                <td>Deshmukh</td>
-                                                <td>+123 112 789</td>
-                                                <td>genelia@gmail.com</td>
-                                                <td>FmhD%3&jboi54hjGCS6g74v##$ </td>
+                                                <td> {{ $servicemanegarproven->last_name }}</td>
+                                                <td>{{ $servicemanegarproven->phone_number }}</td>
+                                                <td>{{ $servicemanegarproven->Email }}</td>
                                                 <td><span class="label label-danger">   1/2/1998</span> </td>
                                                 <td>Dama Rose</td>
-                                                <td><select id="LockedAccont"  data-placeholder="Select a state..." class="  bg-transparent select2-with-icons form-control select2-hidden-accessible" id="select2-with-icons" style="width: 100%; height:36px;" data-select2-id="select2-with-icons" tabindex="-1" aria-hidden="true" onChange="BorderColor()">
-                                       
-                                                    <option value="green"> Locked</option>
-                                                    <option value="blue"> UnLocked</option>
-                                             
-                                            </select></td>
+                                            
                                                 <td><a class="text-dark ml-2" ><i class="mdi mdi-delete font-20" data-toggle="modal" data-target="#centermodal"></i></a>
                                                 </td>
                                             </tr>
-                                            </tbody>
-                                    </table>
+                                         
                                 </div>
                                 </div></div>
                         </div>
                      
                     <!-- ========================= end Service manager Table=====================-->
                     <!--=======================================================================-->
+    
+                      <!--===========================Delete Row========================-->
+
+                      <div class="modal fade" id="centermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h5 class="modal-title  text-white" id="exampleModalLongTitle">Delete this Row</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="font-20 font-weight-bolder text-dark">Are you sure to Delete This Row ?</p>
+                                    <div class="modal-footer">
+                                        <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
+                                        <a href="remove_service_manegar/{{ $servicemanegarproven->id }}" id="BookingUnConf" class="btn btn-danger">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </tbody>
+                </table>
+                @endforeach
+                        <!--===========================EndDelete Row========================-->
     
                       <!-----================prove service Admin======================-->
     
@@ -279,7 +299,8 @@
     <h4>Are You sure to prove this To be Service manager</h4>
     <div class="modal-footer">
     
-    <button class="btn btn-danger">UnProve</button><button type="submit" class="btn btn-success  done" id="done" data-dismiss="modal">prove this</button>
+    <button class="btn btn-danger">UnProve</button>
+    <button type="submit" class="btn btn-success  done" id="done" data-dismiss="modal">prove this</button>
     </div>
     </form>
     </div>
@@ -290,30 +311,6 @@
     
                       <!--===========================EndAprove========================-->
 
-                      <!--===========================Delete Row========================-->
-
-                      <div class="modal fade" id="centermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h5 class="modal-title  text-white" id="exampleModalLongTitle">Delete this Row</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="font-20 font-weight-bolder text-dark">Are you sure to Delete This Row ?</p>
-                                    <div class="modal-footer">
-                                        <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                        <button id="BookingUnConf" class="btn btn-danger"  data-dismiss="modal">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <!--===========================EndDelete Row========================-->
-    
                       <!--====================certificate  modal===========================-->
     
                     <div class="modal fade" id="bs-example-modal-lg" tabindex="-1" role="dialog"

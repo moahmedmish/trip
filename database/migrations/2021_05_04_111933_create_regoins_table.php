@@ -16,6 +16,7 @@ class CreateRegoinsTable extends Migration
         Schema::create('regoins', function (Blueprint $table) {
             $table->id();
             $table->string('region_name');
+            $table->integer('place_id');
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Place;
 use App\Models\Regoin;
+use App\Models\Certificate_Registration;
+use App\Models\ServiceManegar;
 
 
 class AdminController extends Controller
@@ -48,7 +50,8 @@ class AdminController extends Controller
     function removePlace($id)
     {
          
-        User::destroy($id);
+        $place = Place::find($id);
+        $place->delete();
 
         return redirect('place_table');
     }
@@ -63,7 +66,27 @@ class AdminController extends Controller
 
     function serviceTable()
     { 
-         return view('admin.service'); 
+
+       $certificate_registration_id_notproven = Certificate_Registration::where('is_a_proven' , '0')
+       ->get()->pluck("id")->toArray();
+
+       $servicemanegarnotproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_notproven )->get();
+
+       $certificate_registration_id_proven = Certificate_Registration::where('is_a_proven' , '1')
+       ->get()->pluck("id")->toArray();
+
+       $servicemanegarproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_proven )->get();
+
+        return view('admin.service' , ['servicemanegarsnotproven' => $servicemanegarnotproven , 'servicemanegarsproven' => $servicemanegarproven]); 
  
+    }
+
+
+    function removeServiceManegar($id)
+    {
+         
+        ServiceManegar::destroy($id);
+
+        return redirect('service_table');
     }
 }

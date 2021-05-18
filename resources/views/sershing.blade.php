@@ -91,6 +91,7 @@
 												</div>
 												<div class="modal-body bgColorAll">
 													<form class="form-horizontal mt-3">
+														@csrf
 														<div class="oneRoom">
 															<div class="borderForm p-2">
 															  <p class="text-center mb-0 p-2 m-20 d-inline">

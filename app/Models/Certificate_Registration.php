@@ -4,17 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Room;
 
-class Available extends Model
+class Certificate_Registration extends Model
 {
     use HasFactory;
-
-    public function rooms()
-    {
-       return $this->belongsTo('Room');
-    }
-
-
-    
 }

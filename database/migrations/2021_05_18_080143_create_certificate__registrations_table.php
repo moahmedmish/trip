@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomsTable extends Migration
+class CreateCertificateRegistrationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('certificate__registrations', function (Blueprint $table) {
             $table->id();
-            $table->integer('count_people');
-            $table->double('price');
-            $table->integer('place_id');
-            $table->string('description');
+            $table->integer('service_manegar_id');
+            $table->boolean('is_a_proven');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('certificate__registrations');
     }
 }

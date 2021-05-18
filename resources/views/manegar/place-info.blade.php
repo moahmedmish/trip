@@ -57,133 +57,7 @@ background: rgb(75, 79, 105);
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper">
-       <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header">
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
-                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
-                            class="ti-menu ti-close"></i></a>
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon -->
-                      
-                        Trips Aid
-                    </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- Toggle which is visible on mobile only -->
-                    <!-- ============================================================== -->
-                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
-                        data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
-                            class="ti-more"></i></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav mr-auto float-left">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a
-                                class="nav-link sidebartoggler d-none d-md-block waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                       
-                        <!-- ============================================================== -->
-                        <!-- Mega Menu -->
-                        <!-- ============================================================== -->
-                      
-                        <!-- ============================================================== -->
-                        <!-- End Mega Menu -->
-                        <!-- ============================================================== -->
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav float-right">
-                        <!-- ============================================================== -->
-                  
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- User profile -->
-                <div class="user-profile position-relative" style="background-color:rgb(93, 118, 133) ; ">
-                    <!-- User profile image -->
-                    <div class="profile-img"> <img src="../assets/images/users/6.jpg" alt="user" class="w-100 rounded-circle" /> </div>
-                    <!-- User profile text-->
-                    <div class="profile-text pt-1"> 
-                        <sapn class=" UserName w-100 text-white d-block position-relative"role="button" aria-haspopup="true" aria-expanded="true">Rula hamed</span>
-                        
-                    </div>
-                </div>
-                <!-- End User profile text-->
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                   
-                        
-                
-                    <ul id="sidebarnav" class="in">
-                        
-                
-                        
-                        <ul aria-expanded="false" class="collapse first-level in">
-                            <li class="sidebar-item  active"><a href="overlay-Place Info.html" class="sidebar-link  active"><i class="fas fa-info"></i><span class="hide-menu"> Place Info </span></a></li>
-                            <li class="sidebar-item "><a href="overlay-Rooms table.html" class="sidebar-link"><i class="fas fa-table"></i> <span class="hide-menu"> Rooms Table </span></a></li>
-                            <li class="sidebar-item"><a href="overlay-Reservation dates.html" class="sidebar-link"><i class="fas fa-calendar-alt"></i><span class="hide-menu">Reservation dates </span></a></li>
-                            <li class="sidebar-item"><a href="proUserProfile.html" class="sidebar-link"><i class="fas fa-user"></i><span class="hide-menu">Profile </span></a></li>
-                            
-                        </ul>
-                   
-        
-        <!-- End Bottom points-->
-    </ul>
-                       
-                        
-            <!-- Bottom points-->
-            <div class="sidebar-footer">
-               
-                <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-            </div>
-            <!-- End Bottom points-->
-        </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+  
             <div class="row page-titles">
                 <div class="col-md-5 col-12 align-self-center">
                     <h3 class="text-themecolor mb-0">Place info</h3>
@@ -252,7 +126,7 @@ background: rgb(75, 79, 105);
                             <div class="form-group row align-items-center mb-0">
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" fas fa-location-arrow text-info"></i> Region</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input list="Region" class="form-control" placeholder="{{ $name_regoin->region_name }}" name="region_name" >
+                                    <input list="Region" class="form-control" placeholder="{{ $regoins->region_name }}" name="region_name" >
                                     <datalist id="Region">
                                         <option value="mazza" class="col-12 col-md-2   d-inline border-success"></option>
                                    </datalist>

@@ -153,12 +153,8 @@
                                     <th class="text-dark font-weight-bold"><i class="mr-2 mdi mdi-email-outline"></i> Email</th>
                                     <th class="text-dark font-weight-bold"><i class="mr-2 mdi mdi-cellphone"></i>Phone</th>
 									<th class="text-dark font-weight-bold"><i class="far fa-calendar-alt"></i> Date Of birh</th>
-									<th class="text-dark font-weight-bold"><i class="icon-lock"></i> locked/UnLocked</th>
-									<th class="text-center">
-                                        <div class="action-btn">
-                                            <a href="javascript:void(0)" class="delete-multiple  text-danger"><i class="fas fa-trash font-20 font-medium"></i> Delete Row</a>
-                                        </div>
-                                    </th>
+							
+									
                                    
                                 </thead>
                                 <tbody>
@@ -189,14 +185,7 @@
 										 <td>
                                             <span class="DateBirth">{{ $user->birthday }}</span>
                                         </td>
-										<td>
-                                            <select id="LockedAccont" data-placeholder="Select a state..." class="  bg-transparent select2-with-icons form-control select2-hidden-accessible" id="select2-with-icons" style="width: 100%; height:36px;" data-select2-id="select2-with-icons" tabindex="-1" aria-hidden="true" onChange="BorderColor()">
-                                   
-                                        <option value="green" > Locked</option>
-                                        <option value="blue"  data-select2-id="47"> UnLocked</option>
-                                 
-                                </select>
-                                        </td>
+										
                                         <td class="text-center">
                                             <div class="action-btn">
                                                 <a class="text-dark ml-2" ><i class="mdi mdi-delete font-20" data-toggle="modal" data-target="#centermodal"></i></a>

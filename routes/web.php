@@ -34,8 +34,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/searching',[SerchController::class,'show_regoin']);
-Route::get('/searching-',[SerchController::class,'searching']);
 
 Route::get('/index_admin',[AdminController::class,'index']);
 Route::get('/place_table',[AdminController::class,'placeTable']);
@@ -43,14 +41,14 @@ Route::get('/remove_To_place/{id}',[AdminController::class,'removePlace']);
 Route::get('/user_table',[AdminController::class,'userTable']);
 Route::get('/remove_To_user/{id}',[AdminController::class,'removeUser']);
 Route::get('/service_table',[AdminController::class,'serviceTable']);
+Route::get('/remove_service_manegar/{id}',[AdminController::class,'removeServiceManegar']);
 
-Route::get('/register_user',[UserController::class,'index']);
-Route::post('/register',[UserController::class,'create']);
-Route::post('/register_servicemanegar',[ServiceManegerController::class,'create']);
+
+
 
 Route::get('/index_manegar',[ServiceManegerController::class,'index']);
 Route::get('/room_info',[ServiceManegerController::class,'room_info']);
-Route::get('/place_info',[ServiceManegerController::class,'place_info']);
+Route::get('/place_info/{id}',[ServiceManegerController::class,'place_info']);
 
 Route::post('/edit_place_info',[ServiceManegerController::class,'edit']);
 Route::get('/remove_To_service/{id}',[ServiceManegerController::class,'removeService']);
@@ -58,3 +56,14 @@ Route::get('/remove_To_service/{id}',[ServiceManegerController::class,'removeSer
 Route::post('/edit_service_info',[ServiceManegerController::class,'editService']);
 Route::post('/add_service_info',[ServiceManegerController::class,'addService']);
 
+
+
+Route::post('/register_servicemanegar',[ServiceManegerController::class,'create']);
+
+Route::get('/register_user',[UserController::class,'index']);
+Route::post('/register',[UserController::class,'create']);
+
+
+
+Route::get('/searching',[SerchController::class,'index']);
+Route::get('/searching-',[SerchController::class,'searching']);

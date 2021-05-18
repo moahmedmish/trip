@@ -20,6 +20,7 @@ class CreateServiceManegarsTable extends Migration
             $table->string('Email');
             $table->string('password');
             $table->string('phone_number');
+            $table->integer('Certificate_Registration_id');
             
             $table->timestamps();
         });

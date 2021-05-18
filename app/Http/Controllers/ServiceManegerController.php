@@ -23,25 +23,26 @@ class ServiceManegerController extends Controller
         return view('manegar.index', ['places' => $place ]);
     }
 
-    function place_info()
+    function place_info($id)
     {
+ 
+        $id_regoin = Regoin::where('place_id', $id)->pluck("id")->toArray();
+        
+        $place = Place::where('id',$id)->where('Reg_ID', $id_regoin )
+        ->get();
 
-        $id_regoin = Regoin::where('id',2)->pluck("id")->toArray();
+        $regoin =  Regoin::where('id', $id_regoin)->first();
 
 
-        $name = Regoin::where('id',$id_regoin)->first();
+        $service = Service::where('place_id', $id)->get();
 
-        $place = Place::where('Reg_ID', $id_regoin)->get();
-
-        $service = Service::where('place_id',1)->get();
-
-        return view('manegar.place-info', ['services' => $service ,'places' =>  $place  ,'name_regoin' => $name]  );
+        return view('manegar.place-info', ['services' => $service ,'places' =>  $place  ,'regoins' => $regoin]  );
     }
 
     function room_info(Request $request )
     {
-
-        $room = Room::where('place_id ', $request->id )->get();
+    
+        $room = Room::get();
         
         return view('manegar.room-info' , ['rooms' => $room ]);
     }
