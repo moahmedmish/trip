@@ -19,9 +19,9 @@ use App\Http\Controllers\ServiceManegerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
 
 Route::get('/index', function () {
     return view('manegar.place-info');
@@ -66,5 +66,5 @@ Route::post('/register',[UserController::class,'create']);
 
 
 
-Route::get('/searching',[SerchController::class,'index']);
+Route::get('/',[SerchController::class,'index']);
 Route::get('/searching-',[SerchController::class,'searching']);

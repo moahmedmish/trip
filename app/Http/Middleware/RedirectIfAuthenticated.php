@@ -17,7 +17,7 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard = null)
     {
         $guards = empty($guards) ? [null] : $guards;
 
@@ -25,6 +25,14 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }
+
+            
+        if ($guard == "admin" && Auth::guard($guard)->check()) {
+            return redirect('/index_admin');
+        }
+        if ($guard == "serviceManegar" && Auth::guard($guard)->check()) {
+            return redirect('/index_manegar');
+        }
         }
 
         return $next($request);

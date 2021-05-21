@@ -4,11 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Place;
 
-class ServiceManegar extends Model
+class ServiceManegar extends Authenticatable
 {
     use HasFactory;
+
+    
+    protected $guard = 'serviceManegar';
+    
     protected $fillable = [
         'first_name'  ,
         'last_name'    ,
@@ -16,9 +21,9 @@ class ServiceManegar extends Model
         'phone_number' ,
         'password'   ,
          
-'Certificate_Registration_id ',
-'created_at ',
-'updated_at ',
+        'Certificate_Registration_id ',
+        'created_at ',
+        'updated_at ',
         
 ];
 

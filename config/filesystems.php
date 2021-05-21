@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'images'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
         ],
         'images' => [
             'driver' => 'local',
-            'root' =>  public_path() ('/assets/images'),
+            'root' =>  public_path('/assets/images'),
             'url' => env('APP_URL').'/public',
             'visibility' => 'public',
         ],

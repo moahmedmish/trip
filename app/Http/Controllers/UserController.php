@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Config;
 
 
+
 class UserController extends Controller
 {
 
@@ -34,11 +35,11 @@ class UserController extends Controller
     function create(Request $req)
     {
               
-        $filePath = " ";
+        $filePath = "";
 
-        if ($req->has('picture')) {
+      if ($req->has('picture')) {
 
-            $filePath = uploadImage('images', $req->picture);
+           $filePath = uploadImage('images', $req->picture);
         }
 
             $user= new User;
@@ -48,7 +49,7 @@ class UserController extends Controller
             $user->Email=$req->Email;
             $user->password=Hash::make( $req->password);
             $user->phone_number=$req->phone_number;
-            $user->picture=$filePath;
+            $user->picture= $filePath;
             $user->birthday=$req->birthday;
     
              $user->save();
