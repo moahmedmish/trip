@@ -108,10 +108,12 @@ var numchilde  = document.getElementsByClassName("numChilde");
 
     function doneForm()
     {
+        alert("kkkk");
         if(x >1)
-        {RoomCnt.innerHTML = x + " Rooms";
+        {RoomCnt.text = "ggdfswius";
         AdultCnt.innerHTML = " Guests " +(a +c) ;
        }
+
        else {
         RoomCnt.innerHTML = x + " Room";
         AdultCnt.innerHTML = " Guests " +(a +c) ;

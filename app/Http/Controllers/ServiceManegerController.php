@@ -23,20 +23,41 @@ class ServiceManegerController extends Controller
         return view('manegar.index', ['places' => $place ]);
     }
 
-    function place_info($id)
+
+    function index_register()
+    {
+        return view('manegar.register');
+    }
+
+    function place_info()
     {
  
-        $id_regoin = Regoin::where('place_id', $id)->pluck("id")->toArray();
+
+        $place =Regoin::with(['place'=> function($query){
+            $query->select(
+             'id',
+            'place_name',
+            'stars',
+            'place_name',
+            'Email',
+            'place_type',
+            'address',
+            'regoin_id',
+        )->where('service_manegar_id', 2);
+           }])->first();
+          
+           
+       // $id_regoin = Regoin::where('place_id', )->pluck("id")->toArray();
         
-        $place = Place::where('id',$id)->where('Reg_ID', $id_regoin )
-        ->get();
+        //$place = Place::where('id',$id)->where('Reg_ID', $id_regoin )
+        //->get();
 
-        $regoin =  Regoin::where('id', $id_regoin)->first();
+        //$regoin =  Regoin::where('id', $id_regoin)->first();
 
 
-        $service = Service::where('place_id', $id)->get();
+        $service = Service::where('place_id', $place->id)->get();
 
-        return view('manegar.place-info', ['services' => $service ,'places' =>  $place  ,'regoins' => $regoin]  );
+        return view('manegar.place-info', ['services' => $service ,'places' =>  $place ]  );
     }
 
     function room_info(Request $request )
@@ -62,15 +83,7 @@ class ServiceManegerController extends Controller
     
              $user->save();
 
-             $place= new Place;
-    
-             $place->place_name=$req->place_name;
-             $place->stars=$req->stars;
-             $place->place_type=$req->place_type;
-             $place->address=$req->address;
-             
-     
-              $place->save();             
+                       
     
              return redirect('/');
      }

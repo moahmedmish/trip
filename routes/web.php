@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', function () {
-    return view('reservation');
+    return view('manegar.place-info');
 });
 
 Auth::routes();
@@ -48,7 +48,7 @@ Route::get('/remove_service_manegar/{id}',[AdminController::class,'removeService
 
 Route::get('/index_manegar',[ServiceManegerController::class,'index']);
 Route::get('/room_info',[ServiceManegerController::class,'room_info']);
-Route::get('/place_info/{id}',[ServiceManegerController::class,'place_info']);
+Route::get('/place_info',[ServiceManegerController::class,'place_info']);
 
 Route::post('/edit_place_info',[ServiceManegerController::class,'edit']);
 Route::get('/remove_To_service/{id}',[ServiceManegerController::class,'removeService']);
@@ -58,7 +58,8 @@ Route::post('/add_service_info',[ServiceManegerController::class,'addService']);
 
 
 
-Route::post('/register_servicemanegar',[ServiceManegerController::class,'create']);
+Route::post('/register_servicemanegar-',[ServiceManegerController::class,'create']);
+Route::get('/register_servicemanegar',[ServiceManegerController::class,'index_register']);
 
 Route::get('/register_user',[UserController::class,'index']);
 Route::post('/register',[UserController::class,'create']);

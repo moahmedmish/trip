@@ -25,18 +25,26 @@ class SerchController extends Controller
 
           $s_date = $request->check_in;
           $e_date = $request->check_out;
+          $adults = $request->adult;
+          
 
-          $regoin = Place::where('address', $regoin_name)->get();
-       
+
+
+          $regoin = Place::where('address', $regoin_name)->get(); 
+         
           if ($regoin)
           {
-               $place = Room::whereHas('availables', function ($query) {
-                $query->where('s_date', $s_date)->where('e_date', $e_date);
-                })->get();
 
-                     return response()->json($place);   
+               $available = Available::where('s_date', $s_date)->where('e_date', $e_date)->get();
+  
           }
 
+          $room = Room::where('count_people', $adults)->where('is_avalible', '1')
+          ->get();
+
+
+
+          return   $room->load('place');
 
          return view('/');   
  

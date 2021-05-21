@@ -79,7 +79,8 @@
                                 </thead>
                                 <tbody>
                                     <!-- row -->
-                                    @foreach($places as $place)
+                                    @foreach($places as $item)
+                                   
                                     <tr class="search-items">
                                     
 										<td>
@@ -87,28 +88,28 @@
                                           data-target="#bs-example-modal-lg">
 										</td>
                                         <td>
-											 <span class="user-name mb-0">{{ $place->place_name }}</span>
+											 <span class="user-name mb-0">{{ $item->place[0]['place_name'] }}</span>
                                             
                                         </td>
 									     <td>
-											 <span class="usr-email-addr mb-0" data-email="">{{ $place->Email }}</span>
+											 <span class="usr-email-addr mb-0" data-email="">{{ $item->place[0]['Email'] }}</span>
                                             
                                         </td>
 										
                                         <td>
-                                            <span >{{ $place->stars }} </span>
+                                            <span >{{ $item->place[0]['stars'] }} </span>
                                         </td>
                                         <td>
-                                            <span>{{ $place->address }}</span>
+                                            <span>{{ $item->place[0]['address'] }}</span>
                                         </td>
                                       
                                         </td>
                                         <td>
-                                            <span></span>
+                                            <span>{{ $item->region_name }}</span>
                                         </td>
         
                                         <td>
-                                            <span>{{ $place->place_type }}</span>
+                                            <span>{{ $item->place[0]['place_type'] }}</span>
                                     </td>
                                         <td class="text-center">
                                             <div class="action-btn">
@@ -117,9 +118,7 @@
                                         </td>
 									</tr>
                                     <!-- /.row -->
-									
-                                
-                          
+								
                         </div>
                     </div>
                 </div>
@@ -141,15 +140,18 @@
                             <p class="font-20 font-weight-bolder text-dark">Are you sure to Delete This Row ?</p>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                <a href="remove_To_place/{{$place->id}}" id="BookingUnConf" class="btn btn-danger">Delete</a>
+                                <a href="remove_To_place/{{ $item->place[0]['id'] }}" id="BookingUnConf" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 </div>
+                	
                 @endforeach
+                                   
             </tbody>
-            </table>
+        </table>
+            
                 <!--===========================EndDelete Row========================-->
 
 

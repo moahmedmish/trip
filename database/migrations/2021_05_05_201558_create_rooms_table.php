@@ -19,6 +19,7 @@ class CreateRoomsTable extends Migration
             $table->double('price');
             $table->integer('place_id');
             $table->string('description');
+            $table->boolean('is_avalible');
             $table->timestamps();
         });
     }

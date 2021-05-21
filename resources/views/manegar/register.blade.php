@@ -5,6 +5,7 @@
 @section('content_head')
 
 <link href="lib/regiser.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="lib/bootstrap-material-datetimepicker.css">
 
 <style>
     .dtp > .dtp-content > .dtp-date-view > header.dtp-header{
@@ -35,7 +36,7 @@
             <img src="" alt="Logo">
             <h3>Welcome !</h3>
             <p>You can add your place to the site so that others can find it easily and book it</p>
-            <form action="register" method="POST">
+            <form action="register_servicemanegar-" method="POST">
                 @csrf
             <input type="submit" name="" value="Regiser"><br>
         </div>
@@ -77,10 +78,7 @@
                                 <input type="text" minlength="10" maxlength="10"  class="form-control" placeholder="Your Phone *" value="" name="phone_number">
                             </div>
                 
-                            <div class="form-group">
-                                <label for="cert" class="btn"style="border:1px solid #ccc ;width: 100%;"> Add Certificate</label>
-                                <input type="file" class="d-none"  accept="image/*" id="cert">
-                            </div>
+                            
                           
                         </div>
                     </div>

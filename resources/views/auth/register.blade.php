@@ -35,9 +35,9 @@
                         <img src="" alt="Logo">
                         <h3>Welcome !</h3>
                         <p>Create your account to be able to book at your favorite place</p>
-                        <form action="register" method="POST">
+                        <form action="register" method="POST"  enctype="multipart/form-data">
                         @csrf
-                        <button type="submit" name="" value="Register"><br>
+                        <input type="submit" name="" value="Register" class=""><br>
                      </div>
                      <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" style="width: 14%;">
@@ -131,47 +131,46 @@
 
 
 
-           
-        <script>
-            //==================================================//
-            //                  Normal Touchspin                //
-            //==================================================//
-            $("input[name='demo3']").TouchSpin();
-            $("input[name='demo1']").TouchSpin();
-            $("input[name='demo2']").TouchSpin();
-            
-            </script>
-        <script>
-            $(function(){
-                $('.mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+  <script>
+    //==================================================//
+    //                  Normal Touchspin                //
+    //==================================================//
+    $("input[name='demo3']").TouchSpin();
+    $("input[name='demo1']").TouchSpin();
+    $("input[name='demo2']").TouchSpin();
     
-                
-    
-            });
-            hljs.initHighlightingOnLoad();
-        </script>
+    </script>
+<script>
+    $(function(){
+        $('.mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+
         
-        <script>
-            var stars = document.getElementById("stars");
-            function dd(){alert(stars.value)}
-            function starsValidate(){
-                if (stars.value > 5){
-                    stars.value = 5;
-                }
-               else if (stars.value < 1 && stars.value != Number(""))
-               {
-                    stars.value = 1;
-                   
-                }
-                else if (stars.value == 0)
-               {
-                    stars.value = null;
-                   
-                }
-                
-              
-            }
-        </script>
+
+    });
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script>
+    var stars = document.getElementById("stars");
+    function dd(){alert(stars.value)}
+    function starsValidate(){
+        if (stars.value > 5){
+            stars.value = 5;
+        }
+       else if (stars.value < 1 && stars.value != Number(""))
+       {
+            stars.value = 1;
+           
+        }
+        else if (stars.value == 0)
+       {
+            stars.value = null;
+           
+        }
+        
+      
+    }
+</script>
 
         </body>
 @endsection

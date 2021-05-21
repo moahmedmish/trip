@@ -15,11 +15,36 @@
     opacity: .3;
 			
 		}
+		.bgImg{
+			background-image: url(images/aaa.jpg);
+			background-size: cover;		
+		}
+		.tripsAidTxt{
+			text-shadow: 4px 2px 1px #e3ebf1;
+			font-family: 'papyrus';
+			font-size: 2.9em;
+			font-weight: 800;
+			color: #6b92b4;
+			
+		}
+		.nextTripsTxt{
+			font-family: 'ink free';
+			text-shadow: 2px 2px 3px  #474c5ae3;
+			font-size: 2.4em;
+		
+		}
+		
+		.lastTripsTxt{
+			color:#eff0ff;
+			text-shadow: 2px 2px 3px  #41444ee3;
+			font-family: 'ink free';
+		}
 	</style>
 @endsection
 
 
 @section('content')
+
 <body style="height: 750px">
 	<div class="h-100   text-center bgImg ">
 		<div class="overlay"></div>
@@ -46,9 +71,9 @@
 				</nav>
 			</header>
 			
-			<div class="mt-5">
-				
-				<span class="d-inline tripsAidTxt " id="p1">Trip's Aid</span> <br/>
+			<div class="mt-5 " style="line-height: 40%">
+			
+				<p class="d-inline tripsAidTxt" id="p1" style="margin-bottom: 50%">Trip's Aid</p> <br/>
 				<p class="d-inline text-white nextTripsTxt" id="p2">Find your favorait place.</p>
 				<br/>
 				<p class="d-inline font-22 lastTripsTxt" id="p3">Find the right place in the right area and the right services</p>
@@ -66,12 +91,17 @@
 						   </datalist>
 						   <input type="text" name="check_in" class="border-success d-inline  ml-1 mdate formSr col-12 col-md-2 mb-2 mb-md-0 " placeholder="check in" id="mdate">
 						   <input type="text" name="check_out" class="border-success d-inline  ml-1  mdate formSr col-12 col-md-2 mb-2 mb-md-0" placeholder="check out">
+						   <input type="text" name="adult" class="border-success d-inline  ml-1 mdate formSr col-12 col-md-2 mb-2 mb-md-0 " placeholder="count" id="mdate">
+						   <input type="text" name="room" class="border-success d-inline  ml-1  mdate formSr col-12 col-md-2 mb-2 mb-md-0" placeholder="room">
 						   <div class="col-12 col-md-3 mb-2 mb-md-0 bg-white font-weight-bolder ml-1 pt-2 text-dark" style="border-radius: 0.3rem; border:0.1em solid #21c1d6;font-size:0.75rem ;" data-toggle="modal" data-target="#exampleModal" id="RoomInfo"><span class="font-14"> <span id="RoomCount" > Room</span><br>
 							<i class="fas fa-users"></i><span id="CountAdult"> Guests </span>
 						   </span>
 						</div>
 							<div class="col-12 col-md-2"><button class="btn btn-twitter btn-block btn-lg mt-1" type="submit">Search</button></div>
 						</div>
+						<input id="RoomCount">
+						<input id="CountAdult" readonly>
+						
 						
 					</form>
 				</div>
@@ -101,7 +131,7 @@
 															    <p class="text-center mb-0 p-2 m-20 d-inline">
 																	<small id="name45" class=" badge-default  form-text  font-14 p-20">Adult</small>
 																</p>
-																<span onclick="RPAdult()" class="borderInput activbtn"  style="cursor: pointer;">-</span><input id="ad" value="1" class="form-control w-50 d-inline m-2 RoomInfo"  readonly><span onclick="PlAdult()"  class="borderInput activbtn"  style="cursor: pointer;">+</span>
+																<span onclick="RPAdult()" class="borderInput activbtn"  style="cursor: pointer;">-</span><input id="ad" name="adult" value="1" class="form-control w-50 d-inline m-2 RoomInfo"  readonly><span onclick="PlAdult()"  class="borderInput activbtn"  style="cursor: pointer;">+</span>
 																 <p class="text-center mb-0 p-2 m-20 d-inline">
 																	 <small id="name45" class=" badge-default  form-text  font-14 p-20">Child</small>
 																	</p>
@@ -112,7 +142,7 @@
 																</div>
 															</div>
 															<div class="modal-footer">
-																<button type="submit" class="btn headercolor btn-lg  done" id="done" onclick="doneForm()" data-dismiss="modal">Done</button>
+																<span  class="btn headercolor btn-lg  done" id="done" onclick="doneForm()" data-dismiss="modal">Done</span>
 															 </form>
 															</div>
 														</div>

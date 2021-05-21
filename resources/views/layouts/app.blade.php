@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
   
-    <title>index</title>
+    <title>Trip’s Aid</title>
     <!-- This page css -->
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap-material-datetimepicker.css">
+ 
     <link href="lib/style.min.css" rel="stylesheet">
 
     <link href="lib/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +24,9 @@
     <link rel="stylesheet" type="text/css" href="lib/prism.css">
     <link href="lib/magnific-popup.css" rel="stylesheet">
     <link href="lib/animation.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap-material-datetimepicker.css">
+    
+
     
 	@yield('content_head')
 </head>
@@ -32,6 +35,11 @@
 
 @yield('content')
 
+    <script src="lib/jquery.bootstrap-touchspin.min.js"></script>
+
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/jquery.raty.js"></script>
+    
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
 	<script src="lib/moment.js"></script>
@@ -39,9 +47,10 @@
 	<script src="lib/jquery.sparkline.min.js"></script>
     <script src="lib/popper.min.js"></script>
     <script src="lib/owl.carousel.min.js"></script>
+    <script src="lib/jquery.sparkline.min.js"></script>
+    <script src="lib/jquery.bootstrap-touchspin.min.js"></script>
 	<script src="lib/app.min.js"></script>
-    <script src="lib/app.init.horizontal.js"></script>
-    <script src="lib/app-style-switcher.horizontal.js"></script>
+
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="lib/perfect-scrollbar.jquery.min.js"></script>
     <script src="lib/sparkline.js"></script>
@@ -54,10 +63,7 @@
     <script src="lib/sweetalert2.all.min.js"></script>
     <script src="lib/sweet-alert.init.js"></script>
     <script src="lib/contact.js"></script>
-    <script src="lib/jquery.bootstrap-touchspin.min.js"></script>
-
-    <script src="lib/jquery-ui.min.js"></script>
-   
+    
     <script src="lib/app.init.overlay.js"></script>
     <script src="lib/app-style-switcher.js"></script>
 
@@ -67,21 +73,18 @@
     <script src="lib/cal-init.js"></script>
        
  
-  <script src="lib/footable.min.js"></script>
-  <script src="lib/footable-init.js"></script>
+     <script src="lib/footable.min.js"></script>
+     <script src="lib/footable-init.js"></script>
 
 
-  <script src="lib/prism.js"></script>
-  <!------show phto-->
-  <script src="lib/jquery.magnific-popup.min.js"></script>
-  <script src="lib/meg.init.js"></script>
+    <script src="lib/prism.js"></script>
+    <!------show phto-->
+    <script src="lib/jquery.magnific-popup.min.js"></script>
+    <script src="lib/meg.init.js"></script>
 
 
-<script src="lib/jquery.sparkline.min.js"></script>
-<script src="lib/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="lib/rating-init.js"></script>
 
-<script src="lib/rating-init.js"></script>
-<script src="lib/jquery.raty.js"></script>
 
 
    

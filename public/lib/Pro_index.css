@@ -5,12 +5,15 @@
 			font-size: 2.9em;
 			font-weight: 800;
 			color: #6b92b4;
+			margin-bottom: 50%;
 		}
 		.nextTripsTxt{
 			font-family: 'ink free';
 			text-shadow: 2px 2px 3px  #474c5ae3;
 			font-size: 2.4em;
+		
 		}
+		
 		.lastTripsTxt{
 			color:#eff0ff;
 			text-shadow: 2px 2px 3px  #41444ee3;
@@ -34,7 +37,7 @@
 			border:3px solid rgba(171, 203, 221, 0.788);
 		}
 		.bgImg{
-			background-image: url('images/aaa.jpg');
+			background-image: url(images/aaa.jpg);
 			background-size: cover;		
 		}
 		.RoomInfo{

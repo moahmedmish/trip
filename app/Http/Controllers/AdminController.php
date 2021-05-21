@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Place;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Place;
+use Illuminate\Support\Collection;
 use App\Models\Regoin;
 use App\Models\Certificate_Registration;
 use App\Models\ServiceManegar;
@@ -22,18 +22,20 @@ class AdminController extends Controller
     function placeTable()
     { 
         
-      //  $id_regoin=Regoin::where('id', $id )
-        //->get()->pluck("id")->toArray();
+        $place =Regoin::with(['place'=> function($query){
+            $query->select(
+             'id',
+            'place_name',
+            'stars',
+            'place_name',
+            'Email',
+            'place_type',
+            'address',
+            'regoin_id',
+        );
+           }])->get();
 
-       // return $id_regoin;
-
-
-        //$id = Place::where('Reg_ID' , )
-        //$regoin = Regoin::select('region_name')where('id', $id_regoin)->get();
-    //return  $regoin;
-        $place = Place::orderBy('created_at', 'desc')->get();
-
-
+         
          return view('admin.place',['places' =>  $place ]); 
  
     }
@@ -49,9 +51,7 @@ class AdminController extends Controller
 
     function removePlace($id)
     {
-         
-        $place = Place::find($id);
-        $place->delete();
+        Place::destroy($id);
 
         return redirect('place_table');
     }
@@ -70,14 +70,17 @@ class AdminController extends Controller
        $certificate_registration_id_notproven = Certificate_Registration::where('is_a_proven' , '0')
        ->get()->pluck("id")->toArray();
 
-       $servicemanegarnotproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_notproven )->get();
+       $servicemanegarnotproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_notproven )
+      ->get();
 
+      return   $servicemanegarnotproven->load('place');
+ $servicemanegarnotproven ;
        $certificate_registration_id_proven = Certificate_Registration::where('is_a_proven' , '1')
        ->get()->pluck("id")->toArray();
 
        $servicemanegarproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_proven )->get();
 
-        return view('admin.service' , ['servicemanegarsnotproven' => $servicemanegarnotproven , 'servicemanegarsproven' => $servicemanegarproven]); 
+        return view('admin.service' ,  ['servicemanegarsnotproven' => $servicemanegarnotproven , 'servicemanegarsproven' => $servicemanegarproven]); 
  
     }
 

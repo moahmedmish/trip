@@ -1,22 +1,47 @@
-<!DOCTYPE html>
-<!-- saved from url=(0026)http://192.168.1.101:8000/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+@extends('layouts.app')
+
+
+@section('content_head')
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>index</title>
     <link rel="stylesheet" href="lib/bootstrap.min-SmIndex.css">
+    <style>
+        #main-wrapper[data-layout=horizontal] .topbar .top-navbar .navbar-header[data-logobg=skin5], #main-wrapper[data-layout=vertical] .topbar .top-navbar .navbar-header[data-logobg=skin5]{
+    background-color:#2B6DAD;  }
+wrapper[data-layout=horizontal] .topbar .navbar-collapse[data-navbarbg=skin5], #main-wrapper[data-layout=horizontal] .topbar[data-navbarbg=skin5], #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin5], #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin5]
+{
+    background-color:#2B6DAD;   
+}
+
+        </style>
    
-</head>
+@endsection
+
+@section('content')
+
 
 <body>
-    
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        @include('layouts.header')
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container">
                 @foreach ($places as $place)
            <h1 class="masthead-heading mb-0">{{ $place->place_name}}</h1> 
           
-              <h2 class="masthead-subheading mb-0">&nbsp;</h2><a class="btn btn-dark btn-xl rounded-pill mt-5" role="button" href="/place_info/{{ $place->id}}">Edit place information</a></div>
+              <h2 class="masthead-subheading mb-0">&nbsp;</h2><a class="btn btn-dark btn-xl rounded-pill mt-5" role="button" href="/place_info">Edit place information</a></div>
               @endforeach
         </div>
         <div class="bg-circle-1 bg-circle"></div>
@@ -41,6 +66,7 @@
     </section>
     <section>
         <div class="container">
+          
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5"><img class="rounded-circle img-fluid" src="./Service manager Index_files/02.jpg"></div>
@@ -63,14 +89,12 @@
             </div>
         </div>
     </section>
-    <footer class="py-5 bg-black">
-        <div class="container">
-            <p class="text-center text-white m-0 small">Copyright&nbsp;© Brand 2021</p>
-        </div>
-    </footer>
+    </div>
+    @include('layouts.footer')
     <script src="./Service manager Index_files/jquery-3.4.1.min.js.download"></script>
     <script src="./Service manager Index_files/bootstrap.min.js.download"></script>
     <script id="bs-live-reload" data-sseport="59181" data-lastchange="1620430500618" src="./Service manager Index_files/livereload.js.download"></script>
 
 
-</body></html>
+</body>
+@endsection

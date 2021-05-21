@@ -79,9 +79,9 @@ background: rgb(75, 79, 105);
                 <!-- Start Page Content -->
                 <div class="card">
                     <div class="card-body">
-                    @foreach ($places as $place)
+                    @foreach ($places as $item)
                       
-                        <h1 class="card-title text-info  mb-5 Plcae-name">{{ $place->place_name }}</h1>
+                        <h1 class="card-title text-info  mb-5 Plcae-name">{{ $item->place[0]['place_name'] }}</h1> 
                         <h6 class="card-subtitle"> To update Place information</h6>
                     </div>
                     <hr class="mt-0">
@@ -95,13 +95,13 @@ background: rgb(75, 79, 105);
                                 
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="icon-location-pin text-info"></i> Addriss</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="{{ $place->address }}" name="address">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="{{ $item->place[0]['address'] }}" name="address">
                                 </div>
                             </div>
                             <div class="form-group row align-items-center mb-0">
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" mdi mdi-email-outline text-info"></i> Email</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ $place->Email }}" name="Email">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ $item->place[0]['Email'] }}" name="Email">
                                 </div>
                             </div>
                             <div class="form-group row align-items-center mb-0">
@@ -113,20 +113,20 @@ background: rgb(75, 79, 105);
                             <div class="form-group row align-items-center mb-0">
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="fas fa-arrows-alt-h text-info"></i> X</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="Number" class="form-control" id="inputEmail3" placeholder="{{ $place->latitude }}" name="latitude">
+                                    <input type="Number" class="form-control" id="inputEmail3" placeholder="{{ $item->place[0]['latitude'] }}" name="latitude">
                                 </div>
                             </div>
                             
                             <div class="form-group row align-items-center mb-0">
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class="fas fa-arrows-alt-v text-info"></i> Y</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input type="number" class="form-control" id="inputEmail3" placeholder="{{ $place->longitude }}" name="longitude">
+                                    <input type="number" class="form-control" id="inputEmail3" placeholder="{{ $item->place[0]['longitude'] }}" name="longitude">
                                 </div>
                             </div>
                             <div class="form-group row align-items-center mb-0">
                                 <label for="inputEmail3" class="col-md-3 text-right control-label col-form-label"><i class=" fas fa-location-arrow text-info"></i> Region</label>
                                 <div class="col-md-9 border-left pb-2 pt-2">
-                                    <input list="Region" class="form-control" placeholder="{{ $regoins->region_name }}" name="region_name" >
+                                    <input list="Region" class="form-control" placeholder="{{ $item->region_name }}" name="region_name" >
                                     <datalist id="Region">
                                         <option value="mazza" class="col-12 col-md-2   d-inline border-success"></option>
                                    </datalist>
@@ -152,7 +152,7 @@ background: rgb(75, 79, 105);
  
                     </form> 
                    
-           
+                    @endforeach
                             <!--------------------------Services------------------>
                             <div class="card-body">
                             <div class="mt-5">
@@ -270,7 +270,7 @@ background: rgb(75, 79, 105);
                             <form action="edit_service_info" method="POST">
                                 @csrf
 
-                                <input type="hidden" value="{{ $service->id }}" name="id">
+                               
                         
                             <h5 class="modal-title  text-white" id="exampleModalLongTitle">Edit this Row</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -357,7 +357,7 @@ background: rgb(75, 79, 105);
                                 </div>
                                 
                             </div>
-                            <input type="hidden" value="{{ $place->id }}" name="id">
+                            
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
                                 <button type="submit" id="BookingUnConf" class="btn btn-success" >Add</button>
@@ -368,7 +368,7 @@ background: rgb(75, 79, 105);
                 </div>
                 </div>
               
-                @endforeach
+               
                 <!--===========================EndAdd Row========================-->
 
 

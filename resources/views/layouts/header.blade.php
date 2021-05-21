@@ -72,7 +72,7 @@
                 <!-- ============profile========-->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img src="../assets/images/users/1.jpg" alt="user" width="35" class="profile-pic rounded-circle" id="IMGProfile">  <span class="rounded-circle bg-light  pl-3 pr-3 pt-2 pb-2 text-dark" id="profile" >R</span>
+                      <img alt="user" width="35" class="profile-pic rounded-circle" id="IMGProfile">  <span class="rounded-circle bg-light  pl-2 pr-2 pt-3 pb-3 text-dark font-14" id="profile" >profile</span>
                     </a>
                     <div class="dropdown-menu mailbox dropdown-menu-right scale-up">
                         <ul class="dropdown-user list-style-none">
@@ -128,5 +128,17 @@
           </div>
           </nav>       
 </header>
-</bod>
+<script>
+    var img = document.getElementById("IMGProfile");
+    var spanDiv = document.getElementById("profile");
+    if(img.src == "")
+    {
+        img.classList.add("d-none");
+    }
+    else if(img.src != "")
+    {
+        spanDiv.classList.add("d-none");
+    }
+    </script>
+</body>
 </html>
