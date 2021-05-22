@@ -19,6 +19,8 @@ class CreateAvailablesTable extends Migration
             $table->integer('room_id');
             $table->date('s_date');
             $table->date('e_date');
+            $table->string('booking_name');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

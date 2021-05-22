@@ -8,6 +8,8 @@ use App\Models\Place;
 use App\Models\Regoin;
 use App\Models\Service;
 use App\Models\Room;
+use App\Models\User;
+use App\Models\Available;
 use Illuminate\Support\Facades\Hash;
 
 class ServiceManegerController extends Controller
@@ -24,6 +26,19 @@ class ServiceManegerController extends Controller
     }
 
 
+    function indexReservation()
+    {
+        $available = User::join('availables', 'availables.user_id', 'users.id')
+        ->select([
+            'users.*',
+             'availables.'
+            ])
+        ->cursor();
+   
+        return view('manegar.reservation-user', ['availables' => $available ]);
+    }
+
+
     function index_register()
     {
         return view('manegar.register');
@@ -31,14 +46,12 @@ class ServiceManegerController extends Controller
 
     function place_info()
     {
- 
 
         $place =Regoin::with(['place'=> function($query){
             $query->select(
              'id',
             'place_name',
             'stars',
-            'place_name',
             'Email',
             'place_type',
             'address',
@@ -46,17 +59,11 @@ class ServiceManegerController extends Controller
         )->where('service_manegar_id', 2);
            }])->first();
           
-           
-       // $id_regoin = Regoin::where('place_id', )->pluck("id")->toArray();
-        
-        //$place = Place::where('id',$id)->where('Reg_ID', $id_regoin )
-        //->get();
-
-        //$regoin =  Regoin::where('id', $id_regoin)->first();
-
 
         $service = Service::where('place_id', $place->id)->get();
 
+        dd($place);
+       
         return view('manegar.place-info', ['services' => $service ,'places' =>  $place ]  );
     }
 
@@ -108,6 +115,21 @@ class ServiceManegerController extends Controller
 
        return redirect('/');
     }
+
+
+
+    public function editReservation(Request $request , $id)
+    {
+
+        $available = Available::find($id);
+
+        $available->status  = "1";
+
+        $available->update();
+      
+
+       return redirect('/index_reservation');
+    }
     public function editService(Request $request)
     {
 
@@ -131,6 +153,13 @@ class ServiceManegerController extends Controller
         return redirect('/place_info');
     }
 
+    function removeReservation($id)
+    {
+         
+        Available::destroy($id);
+
+        return redirect('/index_reservation');
+    }
 
     function addService (Request $req )
     {

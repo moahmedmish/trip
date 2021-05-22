@@ -73,8 +73,7 @@ class AdminController extends Controller
        $servicemanegarnotproven = ServiceManegar::whereIn('Certificate_Registration_id' ,  $certificate_registration_id_notproven )
       ->get();
 
-      return   $servicemanegarnotproven->load('place');
- $servicemanegarnotproven ;
+
        $certificate_registration_id_proven = Certificate_Registration::where('is_a_proven' , '1')
        ->get()->pluck("id")->toArray();
 

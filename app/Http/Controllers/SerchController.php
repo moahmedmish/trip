@@ -27,9 +27,6 @@ class SerchController extends Controller
           $e_date = $request->check_out;
           $adults = $request->adult;
           
-
-
-
           $regoin = Place::where('address', $regoin_name)->get(); 
          
           if ($regoin)

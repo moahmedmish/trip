@@ -117,7 +117,7 @@
                 <div class="col-md-5 col-12 align-self-center">
                     <h3 class="text-themecolor mb-0">Users table</h3>
                     <ol class="breadcrumb mb-0 p-0 bg-transparent">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/index_admin">Home</a></li>
                         <li class="breadcrumb-item active">users table</li>
                     </ol>
                 </div>
@@ -164,7 +164,7 @@
                                     <tr class="search-items">
             
 										<td>
-										     <img src="{{ $user->picture }}" alt="avatar" class="rounded-circle" width="35">
+										     <img src="{{ asset($user->picture) }}" alt="avatar" class="rounded-circle" width="35">
 										</td>
                                         <td>
 											 <span class="user-name mb-0">{{ $user->first_name }}</span>

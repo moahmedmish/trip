@@ -79,28 +79,32 @@
                                 </thead>
                                 <tbody>
                                     <!-- row -->
-                                    @foreach($places as $item)
+                                    @foreach ($places as $item)
+                                        
+                                    
+                                    @foreach($item->place as $row)
+                                    <td>
+                                   
                                    
                                     <tr class="search-items">
                                     
-										<td>
-										  <img src="../assets/images/background/تنزيل.jpg" alt="avatar" width="35"  data-toggle="modal"
-                                          data-target="#bs-example-modal-lg">
-										</td>
+									
                                         <td>
-											 <span class="user-name mb-0">{{ $item->place[0]['place_name'] }}</span>
+                                            
+											 <span class="user-name mb-0">{{ $row['place_name']}}</span>
+                                           
                                             
                                         </td>
 									     <td>
-											 <span class="usr-email-addr mb-0" data-email="">{{ $item->place[0]['Email'] }}</span>
+											 <span class="usr-email-addr mb-0" data-email="">{{ $row['Email'] }}</span>
                                             
                                         </td>
 										
                                         <td>
-                                            <span >{{ $item->place[0]['stars'] }} </span>
+                                            <span >{{ $row['stars'] }} </span>
                                         </td>
                                         <td>
-                                            <span>{{ $item->place[0]['address'] }}</span>
+                                            <span>{{ $row['address'] }}</span>
                                         </td>
                                       
                                         </td>
@@ -109,7 +113,7 @@
                                         </td>
         
                                         <td>
-                                            <span>{{ $item->place[0]['place_type'] }}</span>
+                                            <span>{{ $row['place_type'] }}</span>
                                     </td>
                                         <td class="text-center">
                                             <div class="action-btn">
@@ -140,13 +144,14 @@
                             <p class="font-20 font-weight-bolder text-dark">Are you sure to Delete This Row ?</p>
                             <div class="modal-footer">
                                 <button id="BookingConf" class="btn btn-light-info deleteRow" data-dismiss="modal">Cancel</button>
-                                <a href="remove_To_place/{{ $item->place[0]['id'] }}" id="BookingUnConf" class="btn btn-danger">Delete</a>
+                                <a href="remove_To_place/{{ $row['id'] }}" id="BookingUnConf" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 </div>
-                	
+                @endforeach
+                
                 @endforeach
                                    
             </tbody>

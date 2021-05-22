@@ -114,7 +114,7 @@
                 <div class="col-md-5 col-12 align-self-center">
                     <h3 class="text-themecolor mb-0">Service managers table</h3>
                     <ol class="breadcrumb mb-0 p-0 bg-transparent">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/index_admin">Home</a></li>
                         <li class="breadcrumb-item active">Service managers table</li>
                     </ol>
                 </div>
@@ -276,9 +276,10 @@
                             </div>
                         </div>
                         </div>
+                        @endforeach
                     </tbody>
                 </table>
-                @endforeach
+                
                         <!--===========================EndDelete Row========================-->
     
                       <!-----================prove service Admin======================-->

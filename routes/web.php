@@ -24,7 +24,7 @@ use App\Http\Controllers\ServiceManegerController;
 //});
 
 Route::get('/index', function () {
-    return view('manegar.place-info');
+    return view('manegar.reservation');
 });
 
 Auth::routes();
@@ -55,6 +55,9 @@ Route::get('/remove_To_service/{id}',[ServiceManegerController::class,'removeSer
 
 Route::post('/edit_service_info',[ServiceManegerController::class,'editService']);
 Route::post('/add_service_info',[ServiceManegerController::class,'addService']);
+Route::get('/index_reservation_user',[ServiceManegerController::class,'indexReservation']);
+Route::get('/remove_reservation/{id}',[ServiceManegerController::class,'removeReservation']);
+Route::get('/edit_reservation/{id}',[ServiceManegerController::class,'editReservation']);
 
 
 

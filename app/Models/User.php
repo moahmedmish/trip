@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Available;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -27,6 +28,12 @@ class User extends Authenticatable implements JWTSubject
             'password'   ,
             'is_Admin_S'  
     ];
+
+    public function available()
+    {
+       return $this->hasMany(Available::class , 'user_id');
+
+    }
 
     /**
      * The attributes that should be hidden for arrays.

@@ -85,9 +85,5 @@
 
     <script src="lib/rating-init.js"></script>
 
-
-
-   
-
 </body>
 </html>
