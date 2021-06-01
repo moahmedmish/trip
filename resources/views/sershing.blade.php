@@ -13,11 +13,11 @@
     width: 100%;
     background-color: #212529;
     opacity: .3;
-			
+
 		}
 		.bgImg{
 			background-image: url(images/aaa.jpg);
-			background-size: cover;		
+			background-size: cover;
 		}
 		.tripsAidTxt{
 			text-shadow: 4px 2px 1px #e3ebf1;
@@ -25,15 +25,15 @@
 			font-size: 2.9em;
 			font-weight: 800;
 			color: #6b92b4;
-			
+
 		}
 		.nextTripsTxt{
 			font-family: 'ink free';
 			text-shadow: 2px 2px 3px  #474c5ae3;
 			font-size: 2.4em;
-		
+
 		}
-		
+
 		.lastTripsTxt{
 			color:#eff0ff;
 			text-shadow: 2px 2px 3px  #41444ee3;
@@ -51,16 +51,18 @@
 		<header class="topbar p-0 bg-transparent">
 					<div class="navbar bg-transparent navbar-expand bg-light navigation-clean font-20" id="navbarSupportedContent">
 						<ul class="navbar-nav float-left ">
-						
+
 							<li class="nav-item">
 								<a class="nav-link t text-white ml-5" href="#"> Help
 								</a>
 							</li>
+                            @if(auth()->check())
 							<li class="nav-item">
 								<a class="nav-link text-white" href="#">
 								Login
 								</a>
 							</li>
+                            @endif
 							<li class="nav-item">
 								<a class="nav-link  text-white" href="#">
 								  Sign Up
@@ -70,9 +72,9 @@
 					</div>
 				</nav>
 			</header>
-			
+
 			<div class="mt-5 " style="line-height: 40%">
-			
+
 				<p class="d-inline tripsAidTxt" id="p1" style="margin-bottom: 50%">Trip's Aid</p> <br/>
 				<p class="d-inline text-white nextTripsTxt" id="p2">Find your favorait place.</p>
 				<br/>
@@ -101,8 +103,8 @@
 						</div>
 						<input id="RoomCount">
 						<input id="CountAdult" readonly>
-						
-						
+
+
 					</form>
 				</div>
 				<center>
@@ -127,7 +129,7 @@
 															  <p class="text-center mb-0 p-2 m-20 d-inline">
 																  <small id="name45" class=" badge-default  form-text  font-14 p-20">Room</small>
 															  </p>
-															   <span onclick="RPRoom()" class="borderInput activbtn cerc"  style="cursor: pointer;">-</span><input id="al" value="1" class="form-control w-50 d-inline m-2 RoomInfo" readonly><span onclick="PlRoom()"  class="borderInput activbtn" style="cursor: pointer;">+</span> 
+															   <span onclick="RPRoom()" class="borderInput activbtn cerc"  style="cursor: pointer;">-</span><input id="al" value="1" class="form-control w-50 d-inline m-2 RoomInfo" readonly><span onclick="PlRoom()"  class="borderInput activbtn" style="cursor: pointer;">+</span>
 															    <p class="text-center mb-0 p-2 m-20 d-inline">
 																	<small id="name45" class=" badge-default  form-text  font-14 p-20">Adult</small>
 																</p>
@@ -157,21 +159,21 @@
 										<div class="container">
 											<div class="row">
 												<div class="col-lg-6 my-auto h-100 text-center text-lg-center">
-													
+
 													<p class="text-muted small mb-4 mb-lg-0">© Trip's Aid team 2021.</p>
 												</div>
 												<div class="col-lg-6 my-auto h-100 text-center text-lg-right">
-													
+
 												</div>
 											</div>
 										</div>
 									</footer>
-								
-						
-				  
+
+
+
             <!-- ========================Add Room====================================== -->
-	
-	
+
+
 			<div class="d-none"><div id="DivAgeChilde2"><select class="form-control border--darksuccess d-inline" style="width: 15%;">
 				<option class="disabled" selected></option>
 				<option value="0">0</option>
@@ -192,15 +194,15 @@
 				<option value="15">15</option>
 				<option value="16">16</option>
 				<option value="17">17</option>
-			
-			</select>					</div>	
-			</div>
-    
-          
-	   
-	
 
-	
+			</select>					</div>
+			</div>
+
+
+
+
+
+
 	<script>
 		//==================================================//
 		//                  Normal Touchspin                //
@@ -208,18 +210,18 @@
 		$("input[name='demo3']").TouchSpin();
 		$("input[name='demo1']").TouchSpin();
 		$("input[name='demo2']").TouchSpin();
-		
+
 		</script>
 	<script>
 		$(function(){
 			$('.mdate').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
 
-			
+
 
 		});
 		hljs.initHighlightingOnLoad();
 	</script>
-	
+
 	<!--==============my Java===========-->
 	<script src="lib/pro_index.js">
 	</script>
